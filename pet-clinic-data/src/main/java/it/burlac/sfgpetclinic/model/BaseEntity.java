@@ -1,6 +1,10 @@
 package it.burlac.sfgpetclinic.model;
 
-public class BaseEntity {
+import java.io.Serializable;
+
+public class BaseEntity implements Serializable {
+
+    private static final long UUID = 232423525245l;
 
     private long id;
 

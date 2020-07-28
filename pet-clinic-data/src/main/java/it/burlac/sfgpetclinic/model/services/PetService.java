@@ -3,16 +3,10 @@ package it.burlac.sfgpetclinic.model.services;
 import it.burlac.sfgpetclinic.model.Pet;
 
 import java.util.List;
+import java.util.Set;
 
-public interface PetService {
+public interface PetService extends CrudService<Pet, Long>{
 
-    Pet findById(long id);
+    Set<Pet> findBytName(String name);
 
-    List<Pet> findBytName(String name);
-
-    Pet save(Pet pet);
-
-    List<Pet> findAll();
-
-    Pet delete(Pet pet);
 }

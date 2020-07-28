@@ -3,18 +3,10 @@ package it.burlac.sfgpetclinic.model.services;
 import it.burlac.sfgpetclinic.model.Owner;
 
 import java.util.List;
+import java.util.Set;
 
-public interface OwnerService {
+public interface OwnerService extends CrudService<Owner, Long>{
 
-    Owner findById(long id);
-
-    List<Owner> findByLastName(String lastName);
-
-    Owner save(Owner owner);
-
-    List<Owner> findAll();
-
-    Owner delete(Owner owner);
-
+    Set<Owner> findByLastName(String lastName);
 
 }
