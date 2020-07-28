@@ -1,0 +1,8 @@
+it/burlac/sfgpetclinic/model/Speciality.class
+it/burlac/sfgpetclinic/model/Owner.class
+it/burlac/sfgpetclinic/model/PetType.class
+it/burlac/sfgpetclinic/model/Person.class
+it/burlac/sfgpetclinic/model/Visit.class
+it/burlac/sfgpetclinic/model/BaseEntity.class
+it/burlac/sfgpetclinic/model/Vet.class
+it/burlac/sfgpetclinic/model/Pet.class
