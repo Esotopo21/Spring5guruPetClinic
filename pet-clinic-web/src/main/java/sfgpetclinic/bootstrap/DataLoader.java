@@ -17,7 +17,6 @@ public class DataLoader implements CommandLineRunner {
     private final PetService petService;
     private final OwnerService ownerService;
     private final Faker faker;
-    private static long id;
 
     public DataLoader(VetService vetService, PetService petService, OwnerService ownerService) {
         this.vetService = vetService;
@@ -30,12 +29,11 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         List<Speciality> specialityList = new ArrayList<>();
         for(int i = 0; i < new Random().nextInt(10); i++){
-            specialityList.add(new Speciality(id++, faker.animal().name()));
+            specialityList.add(new Speciality(faker.animal().name()));
         }
 
         for(int i=0; i < /*new Random().nextInt(6)*/ 6; i++){
             Vet vet = new Vet();
-            vet.setId(id++);
             vet.setFirstName(faker.name().firstName());
             vet.setLastName(faker.name().lastName());
             for(int j=0; j < /*new Random().nextInt(3)*/ 3; j++){
@@ -47,11 +45,11 @@ public class DataLoader implements CommandLineRunner {
         for (int i = 0; i < /*new Random().nextInt(10)*/ 10; i++){
             Set<Pet> petSet = new HashSet<>();
 
-            Owner owner = new Owner(id++, faker.name().firstName(), faker.name().lastName(), faker.address().streetAddress(),
+            Owner owner = new Owner(faker.name().firstName(), faker.name().lastName(), faker.address().streetAddress(),
                     faker.address().city(), String.valueOf(faker.phoneNumber().cellPhone()), new HashSet<>());
 
             for(int j = 0; j < /*new Random().nextInt(4)*/ 2; j++){
-                Pet pet = new Pet(id++, faker.funnyName().name(), faker.date().birthday(), new PetType(id++, faker.animal().name()), owner);
+                Pet pet = new Pet(faker.funnyName().name(), faker.date().birthday(), new PetType(faker.animal().name()), owner);
                 pet.setOwner(owner);
                 petSet.add(pet);
                 petService.save(pet);
@@ -60,18 +58,5 @@ public class DataLoader implements CommandLineRunner {
             owner.setPets(petSet);
             ownerService.save(owner);
         }
-        System.out.println("------ VETS ------");
-        System.out.println(vetService.findAll());
-        System.out.println("------ PETS ------");
-        System.out.println(petService.findAll());
-        System.out.println("------ OWNS ------");
-        System.out.println(ownerService.findAll());
-
-
-
-
-
     }
-
-  //  long id, String firstName, String lastName, String address, String city, String telephone
 }

@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class VerMapService extends AbstractMapService<Vet, Long> implements VetService {
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override
     public List<Vet> findBytName(String name) {
@@ -28,7 +28,7 @@ public class VerMapService extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet vet) {
-        return super.save(vet.getId(),vet);
+        return super.save(vet);
     }
 
     @Override

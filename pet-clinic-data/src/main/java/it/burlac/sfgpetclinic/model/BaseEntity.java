@@ -6,20 +6,20 @@ public class BaseEntity implements Serializable {
 
     private static final long UUID = 232423525245l;
 
-    private long id;
+    private Long id;
 
     public BaseEntity() {
     }
 
-    public BaseEntity(long id) {
+    public BaseEntity(Long id) {
         this.id = id;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }
