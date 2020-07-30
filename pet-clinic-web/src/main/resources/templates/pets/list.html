@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Vets list</title>
+    <title>Owners list</title>
     <style>
         .simple-table {
             border: 1px solid black;
@@ -14,29 +14,30 @@
         .simple-table td {
             border: 1px solid black;
             text-align: center;
-            white-space: pre-wrap;
+            white-space: nowrap;
         }
 
     </style>
 </head>
 <body>
-<h1 th:text="'List of pets owners'">List of Owner</h1>
+<h1 th:text="'List of pets'">List of Pets</h1>
 <table class="simple-table">
     <thead>
     <tr>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Specialities</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Birthday</th>
+        <th>Owner</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="vet : ${vets}">
-        <td th:text="${vet.firstName}"></td>
-        <td th:text="${vet.lastName}"></td>
+    <tr th:each="pet : ${pets}">
+        <td th:text="${pet.name}"></td>
+        <td th:text="${pet.petType.name}"></td>
+        <td th:text="${pet.birthData}"></td>
         <td>
-            <span th:each="spec : ${vet.specialities}">
-                <p th:text="${spec.description}"></p>
-            </span>
+            <p th:text="${pet.owner.firstName}"></p>
+            <p th:text="${pet.owner.lastName}"></p>
         </td>
     </tr>
     </tbody>

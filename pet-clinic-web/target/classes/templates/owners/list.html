@@ -3,8 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Owners list</title>
+    <style>
+        .simple-table {
+            border: 1px solid black;
+         }
+        .simple-table tr {
+            border: 1px solid black;
+        }
+
+        .simple-table td {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
     <h1 th:text="'List of pets owners'">List of Owner</h1>
+    <table class="simple-table">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Telephone</th>
+                <th>Number of pets</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="owner : ${owners}">
+                <td th:text="${owner.firstName}"></td>
+                <td th:text="${owner.lastName}"></td>
+                <td th:text="${owner.address}"></td>
+                <td th:text="${owner.city}"></td>
+                <td th:text="${owner.telephone}"></td>
+                <td th:text="${owner.pets.size()}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

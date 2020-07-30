@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Vets list</title>
+    <style>
+        .simple-table {
+            border: 1px solid black;
+        }
+        .simple-table tr {
+            border: 1px solid black;
+        }
+
+        .simple-table td {
+            border: 1px solid black;
+            text-align: center;
+            white-space: pre-wrap;
+        }
+
+    </style>
 </head>
 <body>
-<h1 th:text="'List of Vets'">List of Vets</h1>
+<h1 th:text="'List of pets owners'">List of Owner</h1>
+<table class="simple-table">
+    <thead>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Specialities</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vet : ${vets}">
+        <td th:text="${vet.firstName}"></td>
+        <td th:text="${vet.lastName}"></td>
+        <td>
+            <span th:each="spec : ${vet.specialities}">
+                <p th:text="${spec.description}"></p>
+            </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

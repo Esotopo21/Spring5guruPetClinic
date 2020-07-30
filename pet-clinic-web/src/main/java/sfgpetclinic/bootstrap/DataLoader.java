@@ -7,9 +7,6 @@ import org.springframework.stereotype.Component;
 import sfgpetclinic.services.OwnerService;
 import sfgpetclinic.services.PetService;
 import sfgpetclinic.services.VetService;
-import sfgpetclinic.services.map.OwnerMapService;
-import sfgpetclinic.services.map.PetMapService;
-import sfgpetclinic.services.map.VerMapService;
 
 import java.util.*;
 
@@ -33,13 +30,14 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         List<Speciality> specialityList = new ArrayList<>();
         for(int i = 0; i < new Random().nextInt(10); i++){
-            specialityList.add(new Speciality(id++, faker.funnyName().name()));
+            specialityList.add(new Speciality(id++, faker.animal().name()));
         }
 
         for(int i=0; i < /*new Random().nextInt(6)*/ 6; i++){
             Vet vet = new Vet();
             vet.setId(id++);
             vet.setFirstName(faker.name().firstName());
+            vet.setLastName(faker.name().lastName());
             for(int j=0; j < /*new Random().nextInt(3)*/ 3; j++){
                 vet.getSpecialities().add(specialityList.get(new Random().nextInt(specialityList.size())));
             }
