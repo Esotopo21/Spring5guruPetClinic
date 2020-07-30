@@ -1,4 +1,4 @@
-package it.burlac.sfgpetclinic.model.services;
+package sfgpetclinic.services;
 
 import it.burlac.sfgpetclinic.model.Vet;
 

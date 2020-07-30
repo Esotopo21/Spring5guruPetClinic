@@ -1,7 +1,7 @@
-package it.burlac.sfgpetclinic.model.services.map;
+package sfgpetclinic.services.map;
 
 import it.burlac.sfgpetclinic.model.Vet;
-import it.burlac.sfgpetclinic.model.services.VetService;
+import sfgpetclinic.services.VetService;
 
 import java.util.List;
 import java.util.Set;
@@ -16,26 +16,26 @@ public class VerMapService extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Set<Vet> findAll() {
-        return this.findAll();
+        return super.findAll();
     }
 
     @Override
     public void delete(Vet vet) {
-        this.delete(vet);
+        super.delete(vet);
     }
 
     @Override
     public Vet save(Vet vet) {
-        return this.save(vet.getId(),vet);
+        return super.save(vet.getId(),vet);
     }
 
     @Override
     public void deleteById(Long id) {
-        this.deleteById(id);
+
     }
 
     @Override
     public Vet findById(Long id) {
-        return this.findById(id);
+        return super.findById(id);
     }
 }

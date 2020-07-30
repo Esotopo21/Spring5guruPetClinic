@@ -1,4 +1,4 @@
-package it.burlac.sfgpetclinic.model.services.map;
+package sfgpetclinic.services.map;
 
 import java.util.HashMap;
 import java.util.HashSet;

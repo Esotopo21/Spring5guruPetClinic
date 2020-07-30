@@ -1,25 +1,26 @@
 package it.burlac.sfgpetclinic.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Pet extends BaseEntity {
 
     private String name;
-    private LocalDate birthData;
+    private Date birthData;
     private PetType petType;
     private Owner owner;
 
     public Pet() {
     }
 
-    public Pet(String name, LocalDate birthData, PetType petType, Owner owner) {
+    public Pet(String name, Date birthData, PetType petType, Owner owner) {
         this.name = name;
         this.birthData = birthData;
         this.petType = petType;
         this.owner = owner;
     }
 
-    public Pet(long id, String name, LocalDate birthData, PetType petType, Owner owner) {
+    public Pet(long id, String name, Date birthData, PetType petType, Owner owner) {
         super(id);
         this.name = name;
         this.birthData = birthData;
@@ -35,11 +36,11 @@ public class Pet extends BaseEntity {
         this.name = name;
     }
 
-    public LocalDate getBirthData() {
+    public Date getBirthData() {
         return birthData;
     }
 
-    public void setBirthData(LocalDate birthData) {
+    public void setBirthData(Date birthData) {
         this.birthData = birthData;
     }
 
@@ -57,5 +58,15 @@ public class Pet extends BaseEntity {
 
     public void setOwner(Owner owner) {
         this.owner = owner;
+    }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "name='" + name + '\'' +
+                ", birthData=" + birthData +
+                ", petType=" + petType +
+                ", owner=" + owner.getLastName() +
+                '}';
     }
 }

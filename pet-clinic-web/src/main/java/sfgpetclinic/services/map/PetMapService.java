@@ -1,7 +1,7 @@
-package it.burlac.sfgpetclinic.model.services.map;
+package sfgpetclinic.services.map;
 
 import it.burlac.sfgpetclinic.model.Pet;
-import it.burlac.sfgpetclinic.model.services.PetService;
+import sfgpetclinic.services.PetService;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,26 +14,26 @@ public class PetMapService extends AbstractMapService<Pet, Long> implements PetS
 
     @Override
     public Set<Pet> findAll() {
-        return this.findAll();
+        return super.findAll();
     }
 
     @Override
     public Pet save(Pet pet) {
-        return this.save(pet.getId(),pet);
+        return super.save(pet.getId(),pet);
     }
 
     @Override
     public void delete(Pet pet) {
-        this.delete(pet);
+        super.delete(pet);
     }
 
     @Override
     public void deleteById(Long id) {
-        this.deleteById(id);
+
     }
 
     @Override
     public Pet findById(Long id) {
-        return this.findById(id);
+        return super.findById(id);
     }
 }
