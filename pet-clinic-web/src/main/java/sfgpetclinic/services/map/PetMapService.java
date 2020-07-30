@@ -1,11 +1,13 @@
 package sfgpetclinic.services.map;
 
 import it.burlac.sfgpetclinic.model.Pet;
+import org.springframework.stereotype.Service;
 import sfgpetclinic.services.PetService;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
     @Override
     public Set<Pet> findBytName(String name) {

@@ -1,12 +1,14 @@
 package sfgpetclinic.services.map;
 
 import it.burlac.sfgpetclinic.model.Vet;
+import org.springframework.stereotype.Service;
 import sfgpetclinic.services.VetService;
 
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class VerMapService extends AbstractMapService<Vet, Long> implements VetService {
 
     @Override

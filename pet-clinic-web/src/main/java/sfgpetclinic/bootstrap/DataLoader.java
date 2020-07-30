@@ -22,11 +22,11 @@ public class DataLoader implements CommandLineRunner {
     private final Faker faker;
     private static long id;
 
-    public DataLoader() {
-        vetService = new VerMapService();
-        petService = new PetMapService();
-        ownerService = new OwnerMapService();
-        faker = Faker.instance();
+    public DataLoader(VetService vetService, PetService petService, OwnerService ownerService) {
+        this.vetService = vetService;
+        this.petService = petService;
+        this.ownerService = ownerService;
+        this.faker = Faker.instance();
     }
 
     @Override

@@ -1,11 +1,14 @@
 package sfgpetclinic.services.map;
 
 import it.burlac.sfgpetclinic.model.Owner;
+import org.springframework.stereotype.Service;
 import sfgpetclinic.services.OwnerService;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
+@Service
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
