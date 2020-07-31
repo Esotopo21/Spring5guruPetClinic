@@ -1,1 +1,14 @@
+sfgpetclinic/services/OwnerService.class
+sfgpetclinic/services/map/AbstractMapService.class
+sfgpetclinic/services/VetService.class
+sfgpetclinic/services/PetService.class
 sfgpetclinic/SfgPetClinicApplication.class
+sfgpetclinic/services/map/PetMapService.class
+sfgpetclinic/services/CrudService.class
+sfgpetclinic/controllers/IndexController.class
+sfgpetclinic/services/map/OwnerMapService.class
+sfgpetclinic/bootstrap/DataLoader.class
+sfgpetclinic/services/map/VetMapService.class
+sfgpetclinic/controllers/OwnerController.class
+sfgpetclinic/controllers/PetController.class
+sfgpetclinic/controllers/VetController.class
