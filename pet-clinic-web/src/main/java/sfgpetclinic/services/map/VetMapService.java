@@ -1,7 +1,9 @@
 package sfgpetclinic.services.map;
 
+import it.burlac.sfgpetclinic.model.Speciality;
 import it.burlac.sfgpetclinic.model.Vet;
 import org.springframework.stereotype.Service;
+import sfgpetclinic.services.SpecialityService;
 import sfgpetclinic.services.VetService;
 
 import java.util.List;
@@ -10,6 +12,12 @@ import java.util.stream.Collectors;
 
 @Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialityService specialityService;
+
+    public VetMapService(SpecialityService specialityService) {
+        this.specialityService = specialityService;
+    }
 
     @Override
     public List<Vet> findBytName(String name) {
@@ -28,6 +36,14 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet vet) {
+        if(vet != null){
+            vet.getSpecialities().forEach(speciality -> {
+                if (speciality.getId() == null){
+                    Speciality savedSpeciality = specialityService.save(speciality);
+                    speciality.setId(savedSpeciality.getId());
+                }
+            });
+        }
         return super.save(vet);
     }
 
