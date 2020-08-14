@@ -1,5 +1,6 @@
 package it.burlac.sfgpetclinic.model;
 
+import lombok.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
@@ -8,11 +9,12 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @Entity
 public class Vet extends Person {
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @Cascade(value = {CascadeType.ALL})
+ //   @Cascade(value = {CascadeType.ALL})
     @JoinTable(joinColumns = @JoinColumn(name = "vet_id"), inverseJoinColumns = @JoinColumn(name = "specialty_id"))
     private Set<Speciality> specialities = new HashSet<>();
 
@@ -41,11 +43,4 @@ public class Vet extends Person {
         this.specialities = specialities;
     }
 
-    public Set<Speciality> getSpecialities() {
-        return specialities;
-    }
-
-    public void setSpecialities(Set<Speciality> specialities) {
-        this.specialities = specialities;
-    }
 }

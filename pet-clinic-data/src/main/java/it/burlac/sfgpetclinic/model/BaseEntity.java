@@ -1,7 +1,10 @@
 package it.burlac.sfgpetclinic.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@Data
 @MappedSuperclass
 public class BaseEntity {
 
@@ -16,26 +19,8 @@ public class BaseEntity {
         this.id = id;
     }
 
-    public Long getId() {
-        return id;
+    public boolean isNew(){
+        return id == null;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        BaseEntity that = (BaseEntity) o;
-
-        return id != null ? id.equals(that.id) : that.id == null;
-    }
-
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : 0;
-    }
 }

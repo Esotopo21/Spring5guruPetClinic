@@ -1,18 +1,19 @@
 package it.burlac.sfgpetclinic.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import lombok.*;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
+@Data
 @Entity
 public class Pet extends BaseEntity {
 
     private String name;
     @Column(name = "birth_date")
     private Date birthData;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     private PetType petType;
     @ManyToOne
     private Owner owner;
@@ -35,45 +36,4 @@ public class Pet extends BaseEntity {
         this.owner = owner;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getBirthData() {
-        return birthData;
-    }
-
-    public void setBirthData(Date birthData) {
-        this.birthData = birthData;
-    }
-
-    public PetType getPetType() {
-        return petType;
-    }
-
-    public void setPetType(PetType petType) {
-        this.petType = petType;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
-    @Override
-    public String toString() {
-        return "Pet{" +
-                "name='" + name + '\'' +
-                ", birthData=" + birthData +
-                ", petType=" + petType +
-                ", owner=" + owner.getLastName() +
-                '}';
-    }
 }

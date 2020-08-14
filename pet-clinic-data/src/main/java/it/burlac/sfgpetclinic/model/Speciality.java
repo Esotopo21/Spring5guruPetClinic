@@ -1,8 +1,11 @@
 package it.burlac.sfgpetclinic.model;
 
+import lombok.*;
+
 import javax.persistence.Entity;
 import java.util.Objects;
 
+@Data
 @Entity
 public class Speciality extends BaseEntity {
 
@@ -21,14 +24,6 @@ public class Speciality extends BaseEntity {
 
     public Speciality(long id, String description) {
         super(id);
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
     }
 
