@@ -1,6 +1,7 @@
 package it.burlac.sfgpetclinic.model;
 
 import javax.persistence.Entity;
+import java.util.Objects;
 
 @Entity
 public class Speciality extends BaseEntity {
@@ -30,4 +31,5 @@ public class Speciality extends BaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }
