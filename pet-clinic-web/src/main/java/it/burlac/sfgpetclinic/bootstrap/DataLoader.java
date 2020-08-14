@@ -3,18 +3,15 @@ package it.burlac.sfgpetclinic.bootstrap;
 import com.github.javafaker.Faker;
 import it.burlac.sfgpetclinic.model.*;
 import it.burlac.sfgpetclinic.services.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Component
+@Slf4j
 public class DataLoader implements CommandLineRunner {
-
-    private static final Logger logger = LoggerFactory.getLogger(DataLoader.class);
 
     private final VetService vetService;
     private final PetService petService;
@@ -48,7 +45,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadPetsAndOwners(){
-        logger.info("Loading pets and owners...");
+        log.info("Loading pets and owners...");
         Owner owner1 = new Owner();
         owner1.setFirstName(faker.name().firstName());
         owner1.setLastName(faker.name().lastName());
@@ -101,12 +98,12 @@ public class DataLoader implements CommandLineRunner {
 
         ownerService.save(owner2);
 
-        logger.info("Pets and owners loaded.");
+        log.info("Pets and owners loaded.");
     }
 
     //Loading vets and specialties
     private void loadVets(){
-        logger.info("Loading vets....");
+        log.info("Loading vets....");
         Speciality s1 = new Speciality("Surgery");
         Speciality s2 = new Speciality("Radiology");
         Speciality s3 = new Speciality("Oncology");
@@ -115,32 +112,37 @@ public class DataLoader implements CommandLineRunner {
         s2 = specialtyService.save(s2);
         s3 = specialtyService.save(s3);
 
-        Vet v1 = new Vet(faker.name().firstName(), faker.name().lastName());
+        Vet v1 = new Vet();
+        v1.setFirstName(faker.name().firstName());
+        v1.setLastName(faker.name().lastName());
 
         v1.getSpecialities().add(s1);
 
         vetService.save(v1);
 
-
-        Vet v2 = new Vet(faker.name().firstName(), faker.name().lastName());
+        Vet v2 = new Vet();
+        v2.setFirstName(faker.name().firstName());
+        v2.setLastName(faker.name().lastName());
 
         v2.getSpecialities().add(s1);
         v2.getSpecialities().add(s3);
 
         vetService.save(v2);
 
-        Vet v3 = new Vet(faker.name().firstName(), faker.name().lastName());
+        Vet v3 = new Vet();
+        v3.setFirstName(faker.name().firstName());
+        v3.setLastName(faker.name().lastName());
 
         v3.getSpecialities().add(s2);
 
         vetService.save(v3);
 
         vetService.findById(2L).getSpecialities().forEach(System.out::println);
-        logger.info("Vets Loaded.");
+        log.info("Vets Loaded.");
     }
 
     private void loadVisits(){
-        logger.info("Loading visits");
+        log.info("Loading visits");
 
         petService.findAll().forEach(pet -> {
             Visit visit = new Visit();

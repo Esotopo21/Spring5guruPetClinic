@@ -1,11 +1,15 @@
 package it.burlac.sfgpetclinic.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @MappedSuperclass
 public class Person extends BaseEntity {
 
@@ -13,19 +17,5 @@ public class Person extends BaseEntity {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-
-    public Person() {
-    }
-
-    public Person(long id, String firstName, String lastName) {
-        super(id);
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 
 }

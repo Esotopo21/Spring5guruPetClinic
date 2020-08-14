@@ -1,13 +1,16 @@
 package it.burlac.sfgpetclinic.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Pet extends BaseEntity {
 
     private String name;
@@ -17,23 +20,5 @@ public class Pet extends BaseEntity {
     private PetType petType;
     @ManyToOne
     private Owner owner;
-
-    public Pet() {
-    }
-
-    public Pet(String name, Date birthData, PetType petType, Owner owner) {
-        this.name = name;
-        this.birthData = birthData;
-        this.petType = petType;
-        this.owner = owner;
-    }
-
-    public Pet(long id, String name, Date birthData, PetType petType, Owner owner) {
-        super(id);
-        this.name = name;
-        this.birthData = birthData;
-        this.petType = petType;
-        this.owner = owner;
-    }
 
 }

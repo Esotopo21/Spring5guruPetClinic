@@ -1,13 +1,18 @@
 package it.burlac.sfgpetclinic.model;
 
-import lombok.*;
-import org.hibernate.annotations.Cascade;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Owner extends Person {
 
@@ -16,31 +21,5 @@ public class Owner extends Person {
     private String telephone;
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Pet> pets = new HashSet<>();
-
-    public Owner() {
-    }
-
-    public Owner(long id, String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
-        super(id, firstName, lastName);
-        this.address = address;
-        this.city = city;
-        this.telephone = telephone;
-        this.pets = pets;
-    }
-
-    public Owner(String address, String city, String telephone, Set<Pet> pets) {
-        this.address = address;
-        this.city = city;
-        this.telephone = telephone;
-        this.pets = pets;
-    }
-
-    public Owner(String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
-        super(firstName, lastName);
-        this.address = address;
-        this.city = city;
-        this.telephone = telephone;
-        this.pets = pets;
-    }
 
 }
