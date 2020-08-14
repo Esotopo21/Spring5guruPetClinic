@@ -1,11 +1,12 @@
 package it.burlac.sfgpetclinic.model;
 
-import java.io.Serializable;
+import javax.persistence.*;
 
-public class BaseEntity implements Serializable {
+@MappedSuperclass
+public class BaseEntity {
 
-    private static final long UUID = 232423525245l;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     public BaseEntity() {

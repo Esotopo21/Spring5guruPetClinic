@@ -1,11 +1,15 @@
 package it.burlac.sfgpetclinic.model;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import java.time.LocalDate;
 
+@Entity
 public class Visit extends BaseEntity {
 
     private LocalDate date;
     private String description;
+    @OneToOne
     private Pet pet;
 
     public Visit() {

@@ -1,13 +1,16 @@
 package it.burlac.sfgpetclinic.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Owner extends Person {
 
     private String address;
     private String city;
     private String telephone;
+    @OneToMany
     private Set<Pet> pets = new HashSet<>();
 
     public Owner() {

@@ -1,13 +1,20 @@
 package it.burlac.sfgpetclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 import java.util.Date;
 
+@Entity
 public class Pet extends BaseEntity {
 
     private String name;
+    @Column(name = "birth_date")
     private Date birthData;
+    @ManyToOne
     private PetType petType;
+    @ManyToOne
     private Owner owner;
 
     public Pet() {
