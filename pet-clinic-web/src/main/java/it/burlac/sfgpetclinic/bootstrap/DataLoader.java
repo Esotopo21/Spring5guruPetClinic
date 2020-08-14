@@ -3,10 +3,8 @@ package it.burlac.sfgpetclinic.bootstrap;
 import com.github.javafaker.Faker;
 import it.burlac.sfgpetclinic.model.*;
 import it.burlac.sfgpetclinic.services.*;
-import it.burlac.sfgpetclinicservices.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import services.*;
 
 @Component
 public class DataLoader implements CommandLineRunner {
